@@ -1,0 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+::-webkit-scrollbar-track{
+  background: darkgray;
+}
+::-webkit-scrollbar-thumb{
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 1rem;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  font-weight: 500;
+}
+
+::placeholder {
+  color: white !important;
+}
+
+#form-fields .prompt{
+  background-color: #161618cd;
+}
+
+.header {
+  /* display: none; */
+}
+
+body.hide-header .header{
+  display: none;
+}
+/* .navbar {
+  color: rgb(211, 215, 215) !important;
+  font-size: 12px;
+  padding-left: 10px;
+} */
+
+.header :where(.title, .subtitle) {
+  font-weight: 500;
+  line-height: 3.6rem;
+}
+
+/* .prompt_form {
+  position: relative;
+  top: 200px;
+  width: 100%;
+  text-align: center;
+} */
+
+.prompt_form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 20vh;
+  right: 0px;
+  width: 100%;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.prompt_form > button {
+  border: none;
+  outline: none;
+  background-color: #1e1f20d2;
+  display: flex;
+  align-items: center;
+}
+.prompt_form > button > span {
+  display: flex;
+  align-items: center;
+}
+
+.header .title {
+  font-size: 2.7rem;
+  font-family: "Poppins", sans-serif;
+  background-clip: text;
+  width: fit-content;
+  background: linear-gradient(to right, #4285f4, #d96570);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header .subtitle {
+  font-size: 2.4rem;
+  color: #828282;
+}
+
+#suggestion-list {
+  margin-top: 15.5vh;
+}
+
+form #info {
+  font-size: 14px;
+}
+
+#form-fields {
+  margin-bottom: 10px;
+  background-color: #161618cd;
+}
+
+#info a {
+  color: #baa6a6;
+}
+
+.card {
+  border: none;
+  outline: none;
+  background-color: #161618;
+  color: rgba(255, 255, 255, 0.867);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.buttonInnerButton:hover {
+  background-color: #828282;
+}
+
+#suggestion-list {
+  display: flex;
+  justify-content: space-evenly;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 0; /* Add padding to ensure cards are not cut off */
+  margin-top: 10.5vh;
+  /* white-space: nowrap; */
+  /* scrollbar-width: thin; */
+}
+
+.chat-list {
+  padding: 2rem 1rem 2rem;
+  max-height: 78vh;
+  overflow-y: auto;
+}
+.chat-list .message {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.chat-list .message.incoming {
+  margin-top: 1.5rem;
+}
+
+.chat-list .message .message-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.chat-list .message .avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  align-self: flex-start;
+}
+
+.chat-list .message.loading .avatar {
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.chat-list .message .text {
+  color: white;
+  margin: 0px;
+}
+
+.chat-list .message.loading .text {
+  display: none;
+}
+
+.chat-list .message .icon {
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  /* font-size: 1.25rem; */
+  margin-left: 3.5rem;
+  color: white;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.chat-list .message:not(.loading):hover .icon:not() {
+  visibility: visible;
+}
+.chat-list .message .icon:hover {
+  background-color: rgb(92, 90, 90);
+  
+}
+
+.chat-list .loading-indicator {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.chat-list .message.loading .loading-indicator {
+  display: flex;
+}
+
+.chat-list .loading-indicator .loading-bar {
+  height: 11px;
+  width: 100%;
+  border-radius: 0.14rem;
+  background: linear-gradient(to right, #4285f4, #242424, #4285f4);
+  animation: animate 3s linear infinite;
+}
+
+.chat-list .loading-indicator .loading-bar:last-child {
+  width: 70%;
+}
+
+@keyframes animate {
+  0% {
+    background-position: -800px 0;
+  }
+
+  100% {
+    background-position: 800px 0;
+  }
+}
+
+/* Media queries to show scrollbar only on smaller screens */
+@media (max-width: 782px) {
+  #suggestion-list {
+    overflow-x: scroll;
+    justify-content: space-between;
+  }
+
+  .card {
+    border: none;
+    outline: none;
+    background-color: #161618;
+    color: rgba(255, 255, 255, 0.867);
+    border-radius: 10px;
+    flex: 0 0 auto;
+    width: 200px;
+    margin: 0;
+  }
+
+  #suggestion-list::-webkit-scrollbar {
+    height: 8px; /* Height of the scrollbar */
+  }
+
+  #suggestion-list::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+  }
+
+  #suggestion-list::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background color of the scrollbar track */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  form #info {
+    font-size: 12px;
+  }
+  .prompt_form {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media screen and (max-width: 338px) {
+  ::placeholder {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 522px) {
+  .title {
+    font-size: 30px !important;
+  }
+  .subtitle {
+    font-size: 29px !important;
+    line-height: 31px !important;
+  }
+  #suggestion-list {
+    margin: 0px !important;
+  }
+  .prompt_form {
+    margin-top: 4.2rem !important;
+  }
+  /* #nav-container {
+    display: none !important;
+  } */
+}
+
+@media screen and (min-width: 998px) {
+  #header-container {
+    margin-top: 10px;
+  }
+  .prompt_form {
+    margin-top: 4.2rem;
+  }
+}
