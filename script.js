@@ -5,7 +5,7 @@ const deleteBtn = document.querySelector("#del");
 
 let userMessage = null;
 
-const API_KEY = "AIzaSyAHWArEzSh4Cg4zLaXmxZ0ug2c-EqNhXpY";
+const API_KEY = your-api-key;
 const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`;
 
 const loadLocalStorage = () => {
